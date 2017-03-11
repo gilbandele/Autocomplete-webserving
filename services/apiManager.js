@@ -17,7 +17,8 @@ connection.connect((err) => {
 
 
 apiManager.getProductsByName = (name, callback) => {
-  connection.query('SELECT * FROM <table> WHERE <field_name> LIKE = ?', name, (err, result) => {
+  var searchName = name+'%';
+  connection.query('SELECT list_sku, list_name FROM products WHERE list_name LIKE ? LIMIT 50', searchName, (err, result) => {
     if (err) {
       console.log(err);
       callback(err);

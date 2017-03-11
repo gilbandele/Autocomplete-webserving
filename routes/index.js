@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var apiManager = require('../services/apiManager');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
